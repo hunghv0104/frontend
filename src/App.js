@@ -22,12 +22,12 @@ function App() {
             element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
         {/* <Route path="https://frontendfinal-5h94.onrender.com/admin" element={<Formtable />} /> */}
-        <Route path="https://frontendfinal-5h94.onrender.com/sign-in" element={<Login />} />
-        <Route path="https://frontendfinal-5h94.onrender.com/sign-up" element={<SignUp />} />
-        <Route path="https://frontendfinal-5h94.onrender.com/userDetails" element={<UserDetails />} />
+        <Route exact path="https://frontendfinal-5h94.onrender.com/sign-in" element={<Login />} />
+        <Route exact path="https://frontendfinal-5h94.onrender.com/sign-up" element={<SignUp />} />
+        <Route exact path="https://frontendfinal-5h94.onrender.com/userDetails" element={<UserDetails />} />
 
-        <Route path="https://frontendfinal-5h94.onrender.com/product" element={<Product />} />
-        <Route path="https://frontendfinal-5h94.onrender.com/cart" element={<Cart />} />
+        <Route exact path="https://frontendfinal-5h94.onrender.com/product" element={<Product />} />
+        <Route exact path="https://frontendfinal-5h94.onrender.com/cart" element={<Cart />} />
       </Routes>
     </Router>
   );
