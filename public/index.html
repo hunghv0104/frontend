@@ -29,48 +29,15 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-      import Product from './src/components/Product.jsx'
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-      function renderComponent(component) {
-        document.getElementById("root").innerHTML = component;
-      }
-
-      function handleRouteChange() {
-        const path = window.location.pathname;
-
-        switch (path) {
-          case "/":
-            const isLoggedIn = window.localStorage.getItem("loggedIn");
-            const homeComponent = isLoggedIn === "true" ? "<UserDetails />" : "<Login />";
-            renderComponent(homeComponent);
-            break;
-          case "/admin":
-            renderComponent("<Formtable />");
-            break;
-          case "/sign-in":
-            renderComponent("<Login />");
-            break;
-          case "/sign-up":
-            renderComponent("<SignUp />");
-            break;
-          case "/userDetails":
-            renderComponent("<UserDetails />");
-            break;
-          case "/product":
-            renderComponent("<Product />");
-            break;
-          case "/cart":
-            renderComponent("<Cart />");
-            break;
-          default:
-            renderComponent("Not Found");
-        }
-      }
-
-      window.addEventListener("popstate", handleRouteChange);
-      handleRouteChange(); // Initial route handling
-    </script>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
   </body>
 </html>
