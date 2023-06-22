@@ -17,7 +17,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-            exact
+            
             path="/"
             element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
