@@ -17,17 +17,17 @@ function App() {
     <Router>
       <Routes>
         <Route
-            
+            exact
             path="/"
             element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
-        <Route path="/admin" element={<Formtable />} />
-        <Route path="/sign-in" element={<Login />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/userDetails" element={<UserDetails />} />
+        {/* <Route path="https://frontendfinal-5h94.onrender.com/admin" element={<Formtable />} /> */}
+        <Route path="https://frontendfinal-5h94.onrender.com/sign-in" element={<Login />} />
+        <Route path="https://frontendfinal-5h94.onrender.com/sign-up" element={<SignUp />} />
+        <Route path="https://frontendfinal-5h94.onrender.com/userDetails" element={<UserDetails />} />
 
-        <Route path="/product" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="https://frontendfinal-5h94.onrender.com/product" element={<Product />} />
+        <Route path="https://frontendfinal-5h94.onrender.com/cart" element={<Cart />} />
       </Routes>
     </Router>
   );
