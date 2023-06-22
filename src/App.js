@@ -16,18 +16,19 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/product" element={<Product />} />
         <Route
             exact
             path="/"
             element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
         {/* <Route path="https://frontendfinal-5h94.onrender.com/admin" element={<Formtable />} /> */}
-        <Route exact path="https://frontendfinal-5h94.onrender.com/sign-in" element={<Login />} />
-        <Route exact path="https://frontendfinal-5h94.onrender.com/sign-up" element={<SignUp />} />
-        <Route exact path="https://frontendfinal-5h94.onrender.com/userDetails" element={<UserDetails />} />
+        <Route path="/sign-in" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/userDetails" element={<UserDetails />} />
 
-        <Route exact path="https://frontendfinal-5h94.onrender.com/product" element={<Product />} />
-        <Route exact path="https://frontendfinal-5h94.onrender.com/cart" element={<Cart />} />
+        
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
   );
