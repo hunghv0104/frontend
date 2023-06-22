@@ -9,7 +9,7 @@ import UserDetails from './components/userDetails';
 import Product from './components/Product';
 import Cart from './components/Cart';
 
-axios.defaults.baseURL = 'http://localhost:5000/admin';
+axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com/admin';
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn")

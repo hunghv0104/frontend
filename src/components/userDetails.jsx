@@ -6,14 +6,13 @@ import UserHome from "./userHome.jsx";
 
 
 export default function UserDetails() {
- // axios.defaults.baseURL = 'http://localhost:5000/user';
   const [userData, setUserData] = useState("");
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     
 
-axios.post('http://localhost:5000/user/userData', {
+axios.post('https://backendfinal-u9mo.onrender.com/user/userData', {
   token: window.localStorage.getItem('token'),
 })
   .then((response) => {

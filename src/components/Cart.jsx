@@ -9,7 +9,7 @@ const handlePayment = () => {
   const token = window.localStorage.getItem('token');
   if (token) {
     axios
-      .post('http://localhost:5000/user/payment', {
+      .post('https://backendfinal-u9mo.onrender.com/user/payment', {
         userId: userId,
         products: cart
       }, {
@@ -36,7 +36,7 @@ const handlePayment = () => {
     const token = window.localStorage.getItem('token');
     
     if (token) {
-      axios.get(`http://localhost:5000/user/cart`, {
+      axios.get(`https://backendfinal-u9mo.onrender.com/user/cart`, {
         headers: {
           Authorization: token
         },
@@ -56,7 +56,7 @@ const handlePayment = () => {
   const removeFromCart = (productId) => {
     const token = window.localStorage.getItem('token');
     if (token) {
-      axios.delete(`http://localhost:5000/user/cart/${productId}`, {
+      axios.delete(`https://backendfinal-u9mo.onrender.com/user/cart/${productId}`, {
         headers: {
           Authorization: token
         }, 

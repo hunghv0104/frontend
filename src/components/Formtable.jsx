@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-axios.defaults.baseURL = 'http://localhost:5000/admin';
+axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com/admin';
 
 const Formtable = () =>{
   //giup bat tat add section
