@@ -3,13 +3,13 @@ import axios from 'axios';
 import { Card } from 'react-bootstrap';
 
 const Payment = () => {
-  const [payment, setPayment] = useState(null);
+  const [payments, setPayment] = useState(null);
   var userId = window.localStorage.getItem('userId')
   useEffect(() => {
     axios.get(`https://backend-test-ad5x.onrender.com/user/payment?userId=${userId}`)
       .then((response) => {
         setPayment(response.data);
-        console.log(payment)
+        console.log(payments)
       })
       .catch((error) => {
         console.log(error);
@@ -18,8 +18,8 @@ const Payment = () => {
 
   return (
     <div>
-  {payment.length > 0 ? (
-    payment.map((payment, index) => (
+  {payments && payments.length > 0 ? (
+    payments.map((payment, index) => (
       <Card key={index}>
         <Card.Body>
           <Card.Title>Payment Details</Card.Title>
@@ -37,7 +37,7 @@ const Payment = () => {
       </Card>
     ))
   ) : (
-    <p>No payment found.</p>
+    <p>No payments found.</p>
   )}
 </div>
   );
