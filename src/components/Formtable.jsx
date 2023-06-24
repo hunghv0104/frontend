@@ -16,21 +16,21 @@ const[addSection, setAddSection] = useState(false)
 //bat tat update section
 const [editSection, setEditSection] = useState(false)
 
-const handlePhoto = (e) => {
-  setFormData((previous) => ({
-    ...previous,
-    image: e.target.files[0],
+// const handlePhoto = (e) => {
+//   setFormData((previous) => ({
+//     ...previous,
+//     image: e.target.files[0],
     
-  }));
-};
+//   }));
+// };
 
-const handlePhotoOnChange = (e) => {
-  setFormDataEdit((previous) => ({
-    ...previous,
-    image: e.target.files[0],
+// const handlePhotoOnChange = (e) => {
+//   setFormDataEdit((previous) => ({
+//     ...previous,
+//     image: e.target.files[0],
     
-  }));
-};
+//   }));
+// };
 
 //giup lay du lieu trong form
 //setFormData la built-in function trong React
@@ -67,17 +67,17 @@ const handleOnChange = (e)=>{ //e: event triggered. Trong truong hop nay la khi 
 
 const handleSubmit = async(e)=>{
   e.preventDefault()
-  const formDataWithImage = new FormData(); //FormData la built-in object
-  formDataWithImage.append('name', formData.name);
-  formDataWithImage.append('year', formData.year);
-  formDataWithImage.append('age_restriction', formData.age_restriction);
-  formDataWithImage.append('price', formData.price);
-  formDataWithImage.append('category', formData.category);
-  formDataWithImage.append('description', formData.description);
-  formDataWithImage.append('image', formData.image);
-  console.log(formData)
-  console.log(formData.image)
-  const data = await axios.post("/create", formDataWithImage);
+  // const formDataWithImage = new FormData(); //FormData la built-in object
+  // formDataWithImage.append('name', formData.name);
+  // formDataWithImage.append('year', formData.year);
+  // formDataWithImage.append('age_restriction', formData.age_restriction);
+  // formDataWithImage.append('price', formData.price);
+  // formDataWithImage.append('category', formData.category);
+  // formDataWithImage.append('description', formData.description);
+  // formDataWithImage.append('image', formData.image);
+  // console.log(formData)
+  // console.log(formData.image)
+  const data = await axios.post("/create", formData);
 
   console.log(data)
   if(data.data.success){
@@ -114,17 +114,17 @@ const handleDelete = async(id)=>{
 //update
 const handleUpdate = async(e)=>{
   e.preventDefault()
-  const formDataEditWithImage = new FormData(); //FormData la built-in object
-  formDataEditWithImage.append('_id', formDataEdit._id);
-  formDataEditWithImage.append('name', formDataEdit.name);
-  formDataEditWithImage.append('year', formDataEdit.year);
-  formDataEditWithImage.append('age_restriction', formDataEdit.age_restriction);
-  formDataEditWithImage.append('price', formDataEdit.price);
-  formDataEditWithImage.append('category', formDataEdit.category);
-  formDataEditWithImage.append('description', formDataEdit.description);
-  formDataEditWithImage.append('image', formDataEdit.image);
+  // const formDataEditWithImage = new FormData(); //FormData la built-in object
+  // formDataEditWithImage.append('_id', formDataEdit._id);
+  // formDataEditWithImage.append('name', formDataEdit.name);
+  // formDataEditWithImage.append('year', formDataEdit.year);
+  // formDataEditWithImage.append('age_restriction', formDataEdit.age_restriction);
+  // formDataEditWithImage.append('price', formDataEdit.price);
+  // formDataEditWithImage.append('category', formDataEdit.category);
+  // formDataEditWithImage.append('description', formDataEdit.description);
+  // formDataEditWithImage.append('image', formDataEdit.image);
 
-  const data = await axios.put("/update", formDataEditWithImage)
+  const data = await axios.put("/update", formDataEdit)
   if (data.data.success)
   {
     getFetchData()
@@ -213,7 +213,8 @@ return(
 
     <div className="form-group">
       <label htmlFor='image'>Image:</label>
-      <input type="file" className="form-control-file btn btn-outline-secondary" name="image" onChange={handlePhoto} />
+      <input type="text" className="form-control" name="image" onChange={handleOnChange}/>
+      {/* <input type="file" className="form-control-file btn btn-outline-secondary" name="image" onChange={handlePhoto} /> */}
     </div>
 
     <button className='btn btn-primary'>Submit</button>
@@ -265,7 +266,7 @@ return(
 
   <div className="form-group">
     <label htmlFor='image'>Image:</label>
-    <input type="file" className="form-control-file" name="image" onChange={handlePhotoOnChange} />
+    <input type="text" className="form-control" name="image" onChange={handleEditOnChange} />
   </div>
 
   <button className='btn btn-primary'>Submit</button>
@@ -346,7 +347,7 @@ return(
                         <td>{el.category}</td>
                         <td>{el.description}</td>
                         <td>
-                          <img src={`/images/${el.image}`} alt="" width='150' height='150' />
+                          <img src={`${el.image}`} alt="" width='150' height='150' />
                         </td>
                         <td>
                           <button className='btn btn-primary mb-3' onClick={() => handleEdit(el)}>Edit</button>
