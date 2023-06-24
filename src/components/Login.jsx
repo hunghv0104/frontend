@@ -98,14 +98,16 @@ axios.post('/user/login-user', {
                       <p>Please login to your account</p>
 
                       <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form2Example11">Username</label>
                         <input type="email" id="form2Example11" className="form-control"
                           placeholder="Username" onChange={(e) => setEmail(e.target.value)}/>
-                        <label className="form-label" htmlFor="form2Example11">Username</label>
+                        
                       </div>
 
                       <div className="form-outline mb-4">
-                        <input type="password" id="form2Example22" className="form-control" onChange={(e) => setPassword(e.target.value)}/>
                         <label className="form-label" htmlFor="form2Example22">Password</label>
+                        <input type="password" id="form2Example22" className="form-control" onChange={(e) => setPassword(e.target.value)}/>
+                        
                       </div>
 
                       <div className="text-center pt-1 mb-5 pb-1">

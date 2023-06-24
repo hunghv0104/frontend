@@ -40,18 +40,28 @@ const PaymentsComponent = () => {
         <Table striped bordered hover>
           <thead>
             <tr>
+              <th className='category-header'>User ID</th>
               <th className='category-header'>Date</th>
               <th className='category-header'>Products</th>
+              <th className='category-header'>Price</th>
             </tr>
           </thead>
           <tbody>
             {payments.map((payment, index) => (
               <tr key={index}>
+                <td>{payment.userId}</td>
                 <td>{payment.date}</td>
                 <td>
                   <ul>
                     {payment.products.map((product, index) => (
                       <li key={index}>{product.name}</li>
+                    ))}
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    {payment.products.map((product, index) => (
+                      <li key={index}>{product.price}</li>
                     ))}
                   </ul>
                 </td>

@@ -138,14 +138,16 @@ axios.post('/user/register', {
                   <div className="row">
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
-                        <input type="text" id="firstName" className="form-control form-control-lg" onChange={(e) => setFname(e.target.value)}/>
                         <label className="form-label" htmlFor="firstName">First Name</label>
+                        <input type="text" id="firstName" className="form-control form-control-lg" onChange={(e) => setFname(e.target.value)}/>
+                        
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
-                        <input type="text" id="lastName" className="form-control form-control-lg" onChange={(e) => setLname(e.target.value)}/>
                         <label className="form-label" htmlFor="lastName">Last Name</label>
+                        <input type="text" id="lastName" className="form-control form-control-lg" onChange={(e) => setLname(e.target.value)}/>
+                        
                       </div>
                     </div>
                   </div>
@@ -178,14 +180,16 @@ axios.post('/user/register', {
                   <div className="row">
                     <div className="col-md-6 mb-4 pb-2">
                       <div className="form-outline">
-                        <input type="email" id="emailAddress" className="form-control form-control-lg" onChange={(e) => setEmail(e.target.value)}/>
                         <label className="form-label" htmlFor="emailAddress">Email</label>
+                        <input type="email" id="emailAddress" className="form-control form-control-lg" onChange={(e) => setEmail(e.target.value)}/>
+                        
                       </div>
                     </div>
                     <div className="col-md-6 mb-4 pb-2">
                       <div className="form-outline">
-                        <input type="password" className="form-control form-control-lg" onChange={(e) => setPassword(e.target.value)}/>
                         <label className="form-label" htmlFor="phoneNumber">Password</label>
+                        <input type="password" className="form-control form-control-lg" onChange={(e) => setPassword(e.target.value)}/>
+                        
                       </div>
                     </div>
                   </div>
