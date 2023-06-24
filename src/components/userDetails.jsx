@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Formtable from "./Formtable";
 import UserHome from "./userHome.jsx";
+import AllPayment from "./AllPayment"
 
 
 export default function UserDetails() {
@@ -15,9 +16,13 @@ export default function UserDetails() {
 axios.post('https://backendfinal-u9mo.onrender.com/user/userData', {
   token: window.localStorage.getItem('token'),
 })
+// axios.post('http://localhost:5000/user/userData', {
+//   token: window.localStorage.getItem('token'),
+// })
   .then((response) => {
     const data = response.data;
     console.log(data, 'userData');
+    window.localStorage.setItem('role', data.data.userType)
     if (data.data.userType === 'Admin') {
       setAdmin(true);
     }

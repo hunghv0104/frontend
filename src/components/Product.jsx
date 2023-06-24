@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -13,6 +14,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get('https://backendfinal-u9mo.onrender.com/admin');
+      // const response = await axios.get('http://localhost:5000/admin');
       setProducts(response.data.data);
     } catch (error) {
       console.error(error);
@@ -63,19 +65,65 @@ const ProductList = () => {
   const categories = [...new Set(products.map((product) => product.category))];
 
   return (
+    <div>
+      <header id="productHeader" className="header d-flex align-items-center">
+      <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="" className="logo d-flex align-items-center">
+          <h1>
+            ATN shop<span>.</span>
+          </h1>
+        </a>
+        <i className="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i className="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        <nav id="navbar" className="navbar">
+          <ul>
+            <li>
+              <a href="/menu" >
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/sign-in">Log in</a>
+            </li>
+            <li>
+              <a href="/product" className="active">Products</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <br /><br /><br /><br />
+
+    <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://wallpapers.com/images/hd/toy-story-4-carnival-a06gs94b1uxnge3v.jpg" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.pixel4k.com/wp-content/uploads/2020/08/scoob-2020_1596930291.jpg" class="d-block w-100" alt="..."/>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.pixel4k.com/wp-content/uploads/2020/08/scoob-2020_1596930291.jpg" class="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br /><br /><br />
     <div className="container">
-      <h1 className="my-4">ATN Shop</h1>
-      <a className="btn btn-danger" href={window.localStorage.getItem('loggedIn') ? '/userDetails' : '/sign-in'}>
-        {window.localStorage.getItem('loggedIn') ? 'User detail' : 'Login'}
-      </a>
-      <a className="btn btn-success" href='/cart'>
-        My cart
-      </a>
+      
       <div className="row">
         <div className="col-md-3 mb-3">
           <div className="list-group">
             <button
-              className={`list-group-item list-group-item-action ${selectedCategory === 'All' ? 'active' : ''}`}
+              className={`btn btn-outline-warning list-group-item list-group-item-action ${selectedCategory === 'All' ? 'active' : ''}`}
               onClick={() => setSelectedCategory('All')}
             >
               All
@@ -83,7 +131,7 @@ const ProductList = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`list-group-item list-group-item-action ${selectedCategory === category ? 'active' : ''}`}
+                className={`btn btn-outline-warning list-group-item list-group-item-action ${selectedCategory === category ? 'active' : ''}`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category}
@@ -92,19 +140,31 @@ const ProductList = () => {
           </div>
         </div>
         <div className="col-md-9">
-          <div className="mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search products"
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-            />
-          </div>
-          <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="row mb-3">
+  <div className="col-sm-8">
+    <input
+      type="text"
+      className="form-control"
+      placeholder="Search products"
+      value={searchQuery}
+      onChange={handleSearchInputChange}
+    />
+  </div>
+  <div className="col-sm-2">
+    <a className="btn btn-outline-danger" href={window.localStorage.getItem('loggedIn') ? '/userDetails' : '/sign-in'}>
+      {window.localStorage.getItem('loggedIn') ? 'User detail' : 'Login'}
+    </a>
+  </div>
+  <div className="col-sm-2">
+    <a className="btn btn-outline-info" href="/cart">
+      My cart
+    </a>
+  </div>
+</div>
+          <div className="productContainer">
             {filteredProducts.map((product) => (
-              <div key={product._id} className="col">
-                <div className="card h-100">
+              <div key={product._id} className="col mb-3">
+                <div className="card h-100 hoverCard">
                   <img src={`/images/${product.image}`} className="card-img-top" alt="Product" />
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{product.name}</h5>
@@ -120,6 +180,8 @@ const ProductList = () => {
           </div>
         </div>
       </div>
+    </div>
+    <br /><br />
     </div>
   );
 };

@@ -136,7 +136,7 @@ const handlePayment = () => {
               </tr>
             ))}
             <tr>
-              <td colSpan="3"></td>
+              <td colSpan="4"></td>
               <td>Total Price: ${groupProducts().totalPrice}</td>
               <td>
                <button className="btn btn-primary" onClick={handlePayment}>

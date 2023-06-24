@@ -4,7 +4,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../ProductStyle.css'
+
 axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com/admin';
+// axios.defaults.baseURL = 'http://localhost:5000/admin'
 
 const Formtable = () =>{
   //giup bat tat add section
@@ -153,13 +156,24 @@ const logOut = () => {
 
 return(
 <div className='container'>
-        <button className='btn btn-success' onClick={()=>setAddSection(true)}>Add</button>
+  <br /><br />
+        <button className='btn btn-success' onClick={()=>setAddSection(true)}>Add</button> &nbsp;
+        <a className="btn btn-primary" href='/payment'>
+          All Payment
+        </a>
+        <div className='text-end'>
+        <button onClick={logOut} className="btn btn-primary text-end">
+          Log Out
+        </button> 
+        </div>
+        &nbsp;
+        
       {
         addSection && ( //neu addSection la true thi moi hien thi form
         <div className='addContainer'>
           <div className='addContainer'>
   <form onSubmit={handleSubmit} className="container">
-    <button className='close-btn' onClick={()=>setAddSection(false)}>X</button>
+    <button className='close-btn btn btn-outline-danger mt-3' onClick={()=>setAddSection(false)}>X</button>
     
     <div className="form-group">
       <label htmlFor='name'>Name:</label>
@@ -198,7 +212,7 @@ return(
 
     <div className="form-group">
       <label htmlFor='image'>Image:</label>
-      <input type="file" className="form-control-file" name="image" onChange={handlePhoto} />
+      <input type="file" className="form-control-file btn btn-outline-secondary" name="image" onChange={handlePhoto} />
     </div>
 
     <button className='btn btn-primary'>Submit</button>
@@ -211,7 +225,7 @@ return(
         editSection &&(
           <div className='addContainer'>
           <form onSubmit={handleUpdate} className="container">
-  <button className='close-btn' onClick={() => setEditSection(false)}>X</button>
+  <button className='close-btn btn btn-outline-danger mt-3' onClick={() => setEditSection(false)}>X</button>
 
   <div className="form-group">
     <label htmlFor='name'>Name:</label>
@@ -260,7 +274,7 @@ return(
         )
       }
 
-      <div className='tableContainer'>
+{/* <div className='tableContainer'>
   <table className="table table-bordered">
     <thead>
       <tr>
@@ -296,10 +310,59 @@ return(
       })}
     </tbody>
   </table>
-</div>
-<button onClick={logOut} className="btn btn-primary">
-  Log Out
-</button>
+</div> */}
+<section className="ftco-section">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6 text-center mb-5">
+            <h2 className="heading-section">Product Management</h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <div className="table-wrap">
+              <table className="table">
+                <thead className="thead-primary">
+                  <tr>
+                    <th className='category-header'>Name</th>
+                    <th className='category-header'>Year</th>
+                    <th className='category-header'>Age Restriction</th>
+                    <th className='category-header'>Price</th>
+                    <th className='category-header'>Category</th>
+                    <th className='category-header'>Description</th>
+                    <th className='category-header'>Image</th>
+                    <th className='category-header'>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {dataList.map((el) => {
+                    return (
+                      <tr key={el._id}>
+                        <td>{el.name}</td>
+                        <td>{el.year}</td>
+                        <td>{el.age_restriction}</td>
+                        <td>{el.price}</td>
+                        <td>{el.category}</td>
+                        <td>{el.description}</td>
+                        <td>
+                          <img src={`/images/${el.image}`} alt="" width='150' height='150' />
+                        </td>
+                        <td>
+                          <button className='btn btn-primary mb-3' onClick={() => handleEdit(el)}>Edit</button>
+                          <button className='btn btn-danger' onClick={() => handleDelete(el._id)}>Delete</button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<br /><br />
 </div>
  )
 }

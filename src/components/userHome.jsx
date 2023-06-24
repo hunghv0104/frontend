@@ -6,7 +6,7 @@ export default function UserHome({ userData }) {
     window.location.href = "./sign-in";
   };
   return (
-    <div className="auth-wrapper">
+    <div className="auth-wrapper m-5">
       <div className="auth-inner">
         <div>
           Name<h1>{userData.fname}</h1>
@@ -14,7 +14,10 @@ export default function UserHome({ userData }) {
           <br />
           <button onClick={logOut} className="btn btn-primary">
             Log Out
-          </button>
+          </button> &nbsp;
+          <a href="/payment" className="btn btn-outline-success">
+            My payment
+          </a>
         </div>
       </div>
     </div>
