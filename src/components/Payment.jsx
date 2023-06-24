@@ -18,26 +18,28 @@ const Payment = () => {
 
   return (
     <div>
-      {payment ? (
-        <Card>
-          <Card.Body>
-            <Card.Title>Payment Details</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Date: {payment.date}</Card.Subtitle>
+  {payment.length > 0 ? (
+    payment.map((payment, index) => (
+      <Card key={index}>
+        <Card.Body>
+          <Card.Title>Payment Details</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">Date: {payment.date}</Card.Subtitle>
 
-            <Card.Text>
-              <h5>Products:</h5>
-              <ul>
-                {payment.products.map((product, index) => (
-                  <li key={index}>{product.name}</li>
-                ))}
-              </ul>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      ) : (
-        <p>Loading payment...</p>
-      )}
-    </div>
+          <Card.Text>
+            <h5>Products:</h5>
+            <ul>
+              {payment.products.map((product, index) => (
+                <li key={index}>{product.name}</li>
+              ))}
+            </ul>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    ))
+  ) : (
+    <p>No payment found.</p>
+  )}
+</div>
   );
 };
 
