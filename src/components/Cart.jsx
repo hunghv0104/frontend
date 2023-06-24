@@ -122,7 +122,7 @@ const handlePayment = () => {
             {groupProducts().products.map((product) => (
               <tr key={product._id}>
                 <td>
-                 <img src={`/images/${product.image}`} alt="" width="100" height="100"/>
+                 <img src={`${product.image}`} alt="" width="100" height="100"/>
                 </td>
                 <td>{product.name}</td>
                 <td>${product.price}</td>
