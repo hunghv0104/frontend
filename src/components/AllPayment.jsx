@@ -11,7 +11,7 @@ const PaymentsComponent = () => {
   };
 
   useEffect(() => {
-    axios.get('https://backendfinal-u9mo.onrender.com/user/allPayment')
+    axios.get('https://backend-test-ad5x.onrender.com/user/allPayment')
     // axios.get('http://localhost:5000/user/allPayment')
       .then((response) => {
         setPayments(response.data);

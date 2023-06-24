@@ -13,31 +13,12 @@ import Payment from './components/Payment';
 import AllPayment from './components/AllPayment'
 import Index from './components/Index'
 
-axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com/admin';
+axios.defaults.baseURL = 'https://backend-test-ad5x.onrender.com/admin';
 // axios.defaults.baseURL = 'http://localhost:5000/admin'
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn")
   const role = window.localStorage.getItem("role")
-  //  return (
-  //   <div>
-  //       <Router>
-  //         <Routes>
-  //           {routes.map((route) => {
-  //             const Page = route.page
-  //             // const Layout = route.isShowHeader ? DefaultComponent : Fragment
-  //             return (
-  //               <Route key={route.path} path={route.path} element={
-  //                 // <Layout>
-  //                   <Page />
-  //                 // </Layout>
-  //               } />
-  //             )
-  //           })}
-  //         </Routes>
-  //       </Router>
-  //   </div>
-  // )
   return (
     <Router>
       <Routes>

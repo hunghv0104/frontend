@@ -13,7 +13,7 @@ export default function UserDetails() {
   useEffect(() => {
     
 
-axios.post('https://backendfinal-u9mo.onrender.com/user/userData', {
+axios.post('https://backend-test-ad5x.onrender.com/user/userData', {
   token: window.localStorage.getItem('token'),
 })
 // axios.post('http://localhost:5000/user/userData', {

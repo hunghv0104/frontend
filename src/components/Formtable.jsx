@@ -6,7 +6,7 @@ import axios from 'axios'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../ProductStyle.css'
 
-axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com/admin';
+axios.defaults.baseURL = 'https://backend-test-ad5x.onrender.com/admin';
 // axios.defaults.baseURL = 'http://localhost:5000/admin'
 
 const Formtable = () =>{
@@ -75,9 +75,8 @@ const handleSubmit = async(e)=>{
   formDataWithImage.append('category', formData.category);
   formDataWithImage.append('description', formData.description);
   formDataWithImage.append('image', formData.image);
-  const data = await axios.post("/create", formDataWithImage);
-   //avoid refreshing when submit
-  // const data = await axios.post("/create", formData) //gui formData den /create de backend xu ly
+  const data = await axios.post("https://backend-test-ad5x.onrender.com/admin/create", formDataWithImage);
+
   console.log(data)
   if(data.data.success){
     setAddSection(false)
@@ -122,7 +121,7 @@ const handleUpdate = async(e)=>{
   formDataEditWithImage.append('category', formDataEdit.category);
   formDataEditWithImage.append('description', formDataEdit.description);
   formDataEditWithImage.append('image', formDataEdit.image);
-  // const data = await axios.post("/create", formDataWithImage);
+
   const data = await axios.put("/update", formDataEditWithImage)
   if (data.data.success)
   {

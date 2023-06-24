@@ -17,7 +17,7 @@ export default function SignUp() {
       e.preventDefault();
 
       console.log(fname, lname, email, password);
-      axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com';
+      axios.defaults.baseURL = 'https://backend-test-ad5x.onrender.com';
 
 axios.post('/user/register', {
   fname,

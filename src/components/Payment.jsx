@@ -6,7 +6,7 @@ const Payment = () => {
   const [payment, setPayment] = useState(null);
   var userId = window.localStorage.getItem('userId')
   useEffect(() => {
-    axios.get(`https://backendfinal-u9mo.onrender.com/user/payment?userId=${userId}`)
+    axios.get(`https://backend-test-ad5x.onrender.com/user/payment?userId=${userId}`)
       .then((response) => {
         setPayment(response.data);
         console.log(payment)

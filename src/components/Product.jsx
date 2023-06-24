@@ -13,7 +13,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://backendfinal-u9mo.onrender.com/admin');
+      const response = await axios.get('https://backend-test-ad5x.onrender.com/admin');
       // const response = await axios.get('http://localhost:5000/admin');
       setProducts(response.data.data);
     } catch (error) {
@@ -45,7 +45,7 @@ const ProductList = () => {
     if (token) {
       axios
         .post(
-          'https://backendfinal-u9mo.onrender.com/user/cart',
+          'https://backend-test-ad5x.onrender.com/user/cart',
           { productId, userId },
           { headers: { Authorization: token } }
         )

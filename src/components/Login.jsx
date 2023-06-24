@@ -8,7 +8,7 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(email, password);
-axios.defaults.baseURL = 'https://backendfinal-u9mo.onrender.com';
+axios.defaults.baseURL = 'https://backend-test-ad5x.onrender.com';
 // axios.defaults.baseURL = 'http://localhost:5000'
 axios.post('/user/login-user', {
   email,
