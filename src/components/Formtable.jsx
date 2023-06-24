@@ -75,7 +75,7 @@ const handleSubmit = async(e)=>{
   formDataWithImage.append('category', formData.category);
   formDataWithImage.append('description', formData.description);
   formDataWithImage.append('image', formData.image);
-  console.log(formDataWithImage)
+  
   const data = await axios.post("/create", formDataWithImage);
 
   console.log(data)
