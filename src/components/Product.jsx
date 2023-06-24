@@ -151,7 +151,7 @@ const ProductList = () => {
     />
   </div>
   <div className="col-sm-2">
-    <a className="btn btn-outline-danger" href={window.localStorage.getItem('loggedIn') ? '/userDetails' : '/sign-in'}>
+    <a className="btn btn-outline-danger" href={window.localStorage.getItem('loggedIn') ? '/menu' : '/sign-in'}>
       {window.localStorage.getItem('loggedIn') ? 'User detail' : 'Login'}
     </a>
   </div>

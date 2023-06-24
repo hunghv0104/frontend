@@ -23,14 +23,14 @@ function App() {
     <Router>
       <Routes>
         <Route
-            path="/userDetails"
+            path="/menu"
             element={isLoggedIn == "true" ? <UserDetails /> : <Login />}
           />
         {/* <Route path="https://frontendfinal-5h94.onrender.com/admin" element={<Formtable />} /> */}
         <Route path="/product" element={<Product />} />
         <Route path="/sign-in" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/menu" element={<UserDetails />} />
+        {/* <Route path="/menu" element={<UserDetails />} /> */}
         <Route path="/cart" element={<Cart />} />
 
         <Route 

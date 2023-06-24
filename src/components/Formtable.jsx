@@ -75,7 +75,8 @@ const handleSubmit = async(e)=>{
   formDataWithImage.append('category', formData.category);
   formDataWithImage.append('description', formData.description);
   formDataWithImage.append('image', formData.image);
-  const data = await axios.post("https://backend-test-ad5x.onrender.com/admin/create", formDataWithImage);
+  console.log(formDataWithImage)
+  const data = await axios.post("/create", formDataWithImage);
 
   console.log(data)
   if(data.data.success){
